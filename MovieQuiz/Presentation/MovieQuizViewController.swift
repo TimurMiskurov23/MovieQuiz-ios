@@ -2,8 +2,20 @@ import UIKit
 
 final class MovieQuizViewController: UIViewController {
     // MARK: - Lifecycle
+   
+    @IBOutlet private var noButton: UIButton!
+    @IBOutlet private var yesButton: UIButton!
+    @IBOutlet private var imageView: UIImageView!
+    @IBOutlet private var textLabel: UILabel!
+    @IBOutlet private var counterLabel: UILabel!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    @IBAction private func noButtonClicked(_ sender: Any) {
+    }
+    @IBAction private func yesButtonClicked(_ sender: Any) {
     }
 }
 
@@ -45,3 +57,5 @@ QuizQuestion(image: "Vivarium",
              text: "Рейтинг этого фильма больше чем 6?",
              coorectAnswer: false)
 ]
+
+
