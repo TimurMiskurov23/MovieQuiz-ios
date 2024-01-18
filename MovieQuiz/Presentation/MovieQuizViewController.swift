@@ -2,7 +2,7 @@ import UIKit
 
 final class MovieQuizViewController: UIViewController {
     // MARK: - Lifecycle
-   
+    
     @IBOutlet private var noButton: UIButton!
     @IBOutlet private var yesButton: UIButton!
     @IBOutlet private var imageView: UIImageView!
@@ -13,11 +13,18 @@ final class MovieQuizViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+    private func show(quiz step: QuizStepViewModel) {
+        imageView.image = step.image
+        textLabel.text = step.question
+        counterLabel.text = step.questionNumber
+    }
     @IBAction private func noButtonClicked(_ sender: Any) {
     }
     @IBAction private func yesButtonClicked(_ sender: Any) {
     }
+
 }
+
 
 struct QuizQuestion {
     let image: String
@@ -58,4 +65,18 @@ QuizQuestion(image: "Vivarium",
              coorectAnswer: false)
 ]
 
+private var currentQuestionIndex = 0
+private var correctAnswers = 0
+private let currnetQuestion = questions[currentQuestionIndex]
+
+struct QuizStepViewModel {
+    let image: UIImage
+    let question: String
+    let questionNumber: String
+}
+
+private func convert(model: QuizQuestion) -> QuizStepViewModel {
+    let questionStep = QuizStepViewModel(image: UIImage (named: model.image) ?? UIImage(), question: model.text, questionNumber: "\(currentQuestionIndex + 1)/\(questions.count)")
+    return questionStep
+}
 
