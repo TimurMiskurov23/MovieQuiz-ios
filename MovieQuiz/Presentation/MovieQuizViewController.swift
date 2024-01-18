@@ -12,6 +12,7 @@ final class MovieQuizViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        show(quiz: QuizStepViewModel(image: UIImage (named: "The Godfather") ?? UIImage(), question: , questionNumber: currentQuestionIndex))
     }
     private func show(quiz step: QuizStepViewModel) {
         imageView.image = step.image
